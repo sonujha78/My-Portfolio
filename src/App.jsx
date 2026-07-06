@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Github, Linkedin, Mail, ExternalLink, MapPin, Send } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, MapPin, Send, Menu, X } from "lucide-react";
 
 /*
   ================= EDIT YOUR DETAILS HERE =================
@@ -15,11 +15,11 @@ const PROFILE = {
     "Hands-on experience in Linux administration, cloud infrastructure automation, and CI/CD pipelines — building scalable systems with AWS, Docker, Kubernetes, Terraform, and Ansible.",
   location: "Gurugram, India",
   email: "2jha78@gmail.com",
-  phone: "+91 7982770094 | 7827443401",
+  phone: "+91 7827443401",
   github: "https://github.com/sonujha78",
   linkedin: "https://www.linkedin.com/in/sonu-kumar-jha-570197384",
-  photo: "/profile.jpeg", // put your photo file named profile.jpg inside the public/ folder
-  resume: "/resume.pdf", // put your resume file named resume.pdf inside the public/ folder
+  photo: "/profile.jpeg", // your photo file
+  resume: "/resume.pdf", // your resume file
 };
 
 const ABOUT =
@@ -131,9 +131,11 @@ export default function App() {
   const [active, setActive] = useState("home");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const scrollTo = (id) => {
     setActive(id);
+    setMenuOpen(false);
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -206,10 +208,36 @@ export default function App() {
             justifyContent: "space-between",
           }}
         >
-          <span className="display-font" style={{ fontSize: 20, fontWeight: 700, letterSpacing: 0.5 }}>
-            {PROFILE.name.split(" ")[0]}
-            <span style={{ color: "#E3B23C" }}>.</span>
-          </span>
+          <div
+            className="display-font"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              lineHeight: 1,
+              cursor: "pointer",
+            }}
+            onClick={() => scrollTo("home")}
+          >
+            <span style={{ fontSize: 26, fontWeight: 700, letterSpacing: -1 }}>
+              S<span style={{ color: "#E3B23C" }}>J</span>
+            </span>
+            <span
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 8,
+                letterSpacing: 2,
+                color: "#8B8F98",
+                marginTop: -2,
+                textTransform: "uppercase",
+                fontWeight: 500,
+              }}
+            >
+              Sonu Kumar Jha
+            </span>
+          </div>
+
+          {/* Desktop nav */}
           <nav className="nav-links" style={{ display: "flex", gap: 4, alignItems: "center" }}>
             {NAV_ITEMS.map((item) => (
               <button
@@ -250,7 +278,73 @@ export default function App() {
               💬 Contact Me
             </button>
           </nav>
+
+          {/* Mobile hamburger button */}
+          <button
+            className="hamburger-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{
+              display: "none",
+              background: "transparent",
+              border: "none",
+              color: "#E3B23C",
+              cursor: "pointer",
+              padding: 6,
+            }}
+          >
+            {menuOpen ? <X size={26} /> : <Menu size={26} />}
+          </button>
         </div>
+
+        {/* Mobile dropdown menu */}
+        {menuOpen && (
+          <div
+            className="mobile-menu"
+            style={{
+              display: "none",
+              flexDirection: "column",
+              background: "#0B0C10",
+              borderTop: "1px solid #1F2229",
+              padding: "10px 24px 20px",
+            }}
+          >
+            {NAV_ITEMS.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  textAlign: "left",
+                  cursor: "pointer",
+                  color: active === item.id ? "#E3B23C" : "#F5F3EE",
+                  fontSize: 16,
+                  fontWeight: 500,
+                  padding: "12px 0",
+                  borderBottom: "1px solid #1F2229",
+                }}
+              >
+                {item.label}
+              </button>
+            ))}
+            <button
+              onClick={() => scrollTo("contact")}
+              style={{
+                marginTop: 16,
+                background: "#F5F3EE",
+                color: "#0B0C10",
+                border: "none",
+                padding: "12px 20px",
+                borderRadius: 999,
+                fontWeight: 600,
+                fontSize: 15,
+                cursor: "pointer",
+              }}
+            >
+              💬 Contact Me
+            </button>
+          </div>
+        )}
       </header>
 
       {/* ---------- HERO ---------- */}
