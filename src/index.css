@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img, svg {
+  max-width: 100%;
+}
+
+h1, h2, h3, p, span, a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ---------- MOBILE FIXES ---------- */
+@media (max-width: 700px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .navbar-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 14px 18px !important;
+  }
+
+  .nav-links {
+    flex-wrap: wrap !important;
+    gap: 2px !important;
+    width: 100%;
+  }
+
+  .nav-links button {
+    padding: 6px 8px !important;
+    font-size: 13px !important;
+  }
+
+  .hero-section {
+    padding: 50px 20px 40px !important;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .hero-grid > div:first-child > div:last-child {
+    justify-content: center !important;
+  }
+
+  .hero-grid > div:first-child {
+    order: 2;
+  }
+
+  .hero-grid > div:first-child > div {
+    justify-content: center !important;
+  }
+
+  .hero-grid > div:first-child p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-grid > div:last-child {
+    order: 1;
+  }
+
+  .page-section {
+    padding: 40px 20px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-section h1 {
+    font-size: 30px !important;
+  }
+}
+
