@@ -15,7 +15,7 @@ const PROFILE = {
     "Hands-on experience in Linux administration, cloud infrastructure automation, and CI/CD pipelines — building scalable systems with AWS, Docker, Kubernetes, Terraform, and Ansible.",
   location: "Gurugram, India",
   email: "2jha78@gmail.com",
-  phone: "+91 7827443401",
+  phone: "+91 798277094 | 7827443401",
   github: "https://github.com/sonujha78",
   linkedin: "https://www.linkedin.com/in/sonu-kumar-jha-570197384",
   photo: "/profile.jpeg", // your photo file
