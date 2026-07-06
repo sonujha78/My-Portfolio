@@ -18,8 +18,8 @@ const PROFILE = {
   phone: "+91 7982770094 | 7827443401",
   github: "https://github.com/sonujha78",
   linkedin: "https://www.linkedin.com/in/sonu-kumar-jha-570197384",
-  photo: "public/profile.jpeg", // put your photo file named profile.jpg inside the public/ folder
-  resume: "public/resume.pdf", // put your resume file named resume.pdf inside the public/ folder
+  photo: "/profile.jpeg", // put your photo file named profile.jpg inside the public/ folder
+  resume: "/resume.pdf", // put your resume file named resume.pdf inside the public/ folder
 };
 
 const ABOUT =
